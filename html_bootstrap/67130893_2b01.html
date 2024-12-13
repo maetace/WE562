@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid Example</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- (การบ้านเว็บ) HTML+BootStrap (ชีท Week 2b) -->
+    <!-- 1. (หน้า 49) ให้ นศ.เขียนโค้ด HTML+BootStrap เพื่อให้ layout หน้าจอปรับเปลี่ยนตำแหน่งตามขนาดจอ -->
+    <div class="container">
+        <!-- Small Screen Layout -->
+        <div class="row d-block d-md-none">
+            <div class="col-12 bg-danger text-white">Menu</div>
+            <div class="col-12 bg-primary text-white">Right</div>
+            <div class="col-12 bg-success text-white">Content</div>
+        </div>
+
+        <!-- Medium Screen Layout -->
+        <div class="row d-none d-md-flex d-lg-none">
+            <div class="col-md-4 bg-danger text-white">Menu</div>
+            <div class="col-md-4 bg-primary text-white">Right</div>
+            <div class="col-md-4 bg-success text-white">Content</div>
+        </div>
+
+        <!-- Large Screen Layout -->
+        <div class="row d-none d-lg-flex">
+            <div class="col-lg-3 bg-danger text-white">Menu</div>
+            <div class="col-lg-6 bg-success text-white">Content</div>
+            <div class="col-lg-3 bg-primary text-white">Right</div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Development</title>
+    <style>
+        :root {
+            --primary-color: #316CF4;
+            --hover-color: #2857c4;
+            --text-color: #555;
+            --background-light: #f8f8f8;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+        }
+
+        .navbar-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            font-weight: bold;
+            opacity: 1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .header-container {
+            padding: 0 20px;
+        }
+
+        .header {
+            background-color: var(--background-light);
+            padding: 40px;
+            text-align: left;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 1200px;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .header p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .header button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header button:hover {
+            background-color: var(--hover-color);
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            flex: 1;
+            border-radius: 5px;
+            text-align: left;
+            min-width: 200px;
+            transition: box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .card:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: var(--text-color);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: var(--hover-color);
+        }
+
+        @media (max-width: 1024px) {
+            .content {
+                gap: 20px;
+            }
+            .card {
+                flex: 1 1 calc(50% - 20px); /* 2 columns */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            .card {
+                flex: 1 1 100%; /* 1 column */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-title">Web Development</div>
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu" id="menu">
+            <a href="#" class="active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <div class="header-container">
+        <div class="header">
+            <h1>Learn to Create Websites</h1>
+            <p>
+                In today's world internet is the most popular way of connecting with people.
+                In this course, you will learn the essentials of web development technologies
+                along with real-life practice examples, so that you can create your own website
+                to connect with the people around the world. Get started today.
+            </p>
+            <button>Get started today</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="card">
+            <h2>HTML</h2>
+            <p>
+                HTML is a markup language that is used for creating web pages. The HTML tutorial section will
+                help you understand the basics of HTML, so that you can create your own web pages or website.
+            </p>
+            <button>Learn more</button>
+        </div>
+
+        <div class="card">
+            <h2>Bootstrap</h2>
+            <p>
+                Bootstrap is a powerful front-end framework for faster and easier web development.
+                The Bootstrap tutorial section will help you learn the techniques of Bootstrap so that
+                you can quickly create your own website.
+            </p>
+            <button>Learn more</button>
+        </div>
+
+        <div class="card">
+            <h2>CSS</h2>
+            <p>
+                CSS is used for describing the presentation of web pages. The CSS tutorial section will help you
+                learn the essentials of CSS, so that you can control the style and layout of your HTML document.
+            </p>
+            <button>Learn more</button>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

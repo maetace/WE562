@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Development</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-title">Responsive Profile</div>
+        <div class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="menu" id="menu">
+            <a href="#" class="active" id="homeLink">Home</a>
+            <a href="#" id="experienceLink">Experience</a>
+            <a href="#" id="educationLink">Education</a>
+        </div>
+    </div>
+
+    <div id="homePage" class="page active">
+        <div class="header-container">
+            <div class="header profile-layout">
+                <!-- รูปโปรไฟล์ -->
+                <div class="profile-container">
+                    <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-pic">
+                </div>
+    
+                <!-- ชื่อและข้อมูล -->
+                <div class="profile-info">
+                    <h1>Monkey D. Luffy</h1>
+                    <h2>มังกี้ ดี ลูฟี่</h2>
+                    <p><strong>ตำแหน่ง:</strong> โปรแกรมเมอร์ฟูลสแต็ก (Full-Stack Developer)</p>
+                    <p><strong>อีเมล:</strong> <a href="mailto:luffy.d.monkey@piratecode.com">luffy.d.monkey@piratecode.com</a></p>
+                    <p><strong>เบอร์โทรศัพท์:</strong> 061-565-6599</p>
+                    <p><strong>ที่อยู่:</strong> หมู่บ้านฟูชา, อีสต์บลู ซิตี้</p>
+                    <p>
+                        นักพัฒนาโปรแกรมที่มีความมุ่งมั่นและไม่ย่อท้อต่อความท้าทาย มีทักษะในด้านการแก้ปัญหา 
+                        และสร้างสรรค์โซลูชันที่ตอบโจทย์ธุรกิจ สนใจในเทคโนโลยีใหม่ ๆ และชอบทำงานในทีมที่สนุกสนาน
+                        และมีเป้าหมายร่วมกัน
+                    </p>
+                </div>
+            </div>
+            <div class="content">
+
+            <div class="card">
+                <h2>Social Media</h2>
+                <ul class="social-media-list">
+                    <li>
+                        <a href="https://www.linkedin.com/in/maetace/" target="_blank" class="social-link">
+                            <img src="./assets/img/linkedin-icon.png" alt="LinkedIn" class="social-icon"> LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/maetace/" target="_blank" class="social-link">
+                            <img src="assets/img/Instagram_icon.png" alt="Instagram" class="social-icon"> Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/maetace" target="_blank" class="social-link">
+                            <img src="assets/img/x-icon.png" alt="X (Twitter)" class="social-icon"> X (Twitter)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/maetace" target="_blank" class="social-link">
+                            <img src="assets/img/facebook-icon.png" alt="Facebook" class="social-icon"> Facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Skills</h2>
+                <p><strong>Frontend:</strong> React.js, HTML5, CSS3</p>
+                <p><strong>Backend:</strong> Node.js</p>
+                <p><strong>Database:</strong> MySQL, PostgreSQL</p>
+                <p><strong>Tools:</strong> Git, Docker, Jenkins</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="experiencePage" class="page">
+        <div class="header-container">
+            <div class="header">
+                <h1>Experience</h1>
+                <h2>Thousand Sunny Tech Co., Ltd.</h2>
+                <p><strong>Position:</strong> Full-Stack Developer</p>
+                <p><strong>Duration:</strong> January 20XX - Present</p>
+                <ul>
+                    <li>Developed web and mobile applications for point collection systems.</li>
+                    <li>Worked on frontend technologies like React.js and backend using Node.js.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="educationPage" class="page">
+        <div class="header-container">
+            <div class="header">
+                <h1>Education</h1>
+                <h2>Grand Line University</h2>
+                <p><strong>Degree:</strong> Bachelor of Engineering in Software Engineering</p>
+                <p><strong>Year:</strong> 20XX - 20XX</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

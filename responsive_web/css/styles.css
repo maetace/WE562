@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary-color: #316CF4;
+  --hover-color: #2857c4;
+  --text-color: #555;
+  --background-light: #f8f8f8;
+}
+
+body {
+  font-family: 'Prompt', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.navbar-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.navbar a.active, .navbar a:hover {
+  font-weight: bold;
+  opacity: 1;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+.menu.active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content {
+    gap: 20px;
+  }
+  .card {
+    flex: 1 1 calc(50% - 20px); /* 2 columns */
+  }
+}
+
+@media (max-width: 768px) {
+
+  .content {
+    padding: 20px;
+  }
+  .card {
+    flex: 1 1 100%; /* 1 column */
+  }
+  .menu {
+    display: none;
+    flex-direction: column;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .profile-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-info {
+     text-align: center;
+  }
+}
+
+/* Page Styling */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: var(--background-light);
+  padding: 40px;
+  text-align: left;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 1200px;
+}
+
+.header h1 {
+  color: var(--primary-color);
+  font-size: 28px;
+}
+
+.header p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #FAFAFA;
+  padding: 20px;
+  flex: 1;
+  border-radius: 5px;
+  text-align: left;
+  min-width: 300px;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.card h2 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout สำหรับหน้า Home */
+.profile-layout {
+display: flex;
+align-items: center;
+gap: 40px;
+flex-wrap: wrap; /* รองรับ Responsive */
+}
+
+.profile-container {
+  flex: 0 0 300px; /* ขนาดของรูปโปรไฟล์ */
+  display: flex;
+  justify-content: center;
+}
+
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  object-fit: cover; /* ปรับให้รูปไม่ผิดสัดส่วน */
+}
+
+.profile-info {
+  flex: 1;
+  color: var(--text-color);
+}
+
+.profile-info h1 {
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  font-size: 28px;
+}
+
+.profile-info p {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+/* Social Media List Styling */
+.social-media-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media-list li {
+  margin-bottom: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: var(--primary-color);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  object-fit: cover;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Information Form</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        #container {
+            width: 650px;
+            margin: 20px auto;
+            border: 1px solid #000;
+            padding: 20px;
+            text-align: left;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #traveler-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 4fr 4fr 1fr;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .save-btn {
+            grid-column: span 3;
+            padding: 10px 0;
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>ข้อมูลผู้เดินทาง</h2>
+        <div id="traveler-info">
+            <div class="row" data-row-index="0">
+                <input type="text" placeholder="ชื่อ-สกุล" />
+                <input type="text" placeholder="รหัสบัตรประชาชน" />
+                <div class="button-group">
+                    <button class="add-btn" onclick="addTraveler()">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="save-btn" onclick="saveData()">บันทึกการจอง</button>
+        </div>
+    </div>
+
+    <script>
+        function addTraveler() {
+            const container = document.getElementById("traveler-info");
+            const rows = container.querySelectorAll(".row");
+            const newRowIndex = rows.length;
+
+            // Remove "+" button from the current last row
+            const lastRow = rows[rows.length - 1];
+            const addButton = lastRow.querySelector(".add-btn");
+            if (addButton) addButton.style.display = "none";
+
+            // Create a new row
+            const newRow = document.createElement("div");
+            newRow.className = "row";
+            newRow.setAttribute("data-row-index", newRowIndex);
+
+            // Add input fields
+            const nameInput = document.createElement("input");
+            nameInput.type = "text";
+            nameInput.placeholder = "ชื่อ-สกุล";
+
+            const idInput = document.createElement("input");
+            idInput.type = "text";
+            idInput.placeholder = "รหัสบัตรประชาชน";
+
+            // Add "+" and "-" buttons
+            const addButtonNew = document.createElement("button");
+            addButtonNew.textContent = "+";
+            addButtonNew.className = "add-btn";
+            addButtonNew.onclick = addTraveler;
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "-";
+            removeButton.onclick = function () {
+                removeTraveler(newRow);
+            };
+
+            const buttonGroup = document.createElement("div");
+            buttonGroup.className = "button-group";
+            buttonGroup.appendChild(removeButton);
+            buttonGroup.appendChild(addButtonNew);
+
+            // Append elements to the new row
+            newRow.appendChild(nameInput);
+            newRow.appendChild(idInput);
+            newRow.appendChild(buttonGroup);
+
+            // Append the new row to the container
+            container.appendChild(newRow);
+        }
+
+        function removeTraveler(row) {
+            const parentContainer = document.getElementById("traveler-info");
+            const rows = parentContainer.querySelectorAll(".row");
+
+            // Remove the row
+            parentContainer.removeChild(row);
+
+            // Ensure "+" button is in the last row
+            const remainingRows = parentContainer.querySelectorAll(".row");
+            if (remainingRows.length > 0) {
+                const lastRow = remainingRows[remainingRows.length - 1];
+                const addButton = lastRow.querySelector(".add-btn");
+                if (addButton) addButton.style.display = "inline-block";
+            }
+        }
+
+        function saveData() {
+            const rows = document.querySelectorAll("#traveler-info .row");
+            const data = Array.from(rows).map(row => {
+                const inputs = row.querySelectorAll("input");
+                return {
+                    name: inputs[0].value,
+                    id: inputs[1].value
+                };
+            });
+
+            console.log("Data to save:", data);
+            alert("ข้อมูลได้ถูกบันทึกเรียบร้อย");
+        }
+    </script>
+</body>
+</html>
