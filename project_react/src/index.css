@@ -1,5 +1,3 @@
-/* index.css */
-
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
 
@@ -22,25 +20,39 @@
 /* Reset Body */
 body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
   font-family: 'Prompt', sans-serif !important;
   background-color: #f5f5f5;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center; /* ยังคงจัดกึ่งกลางแนวนอน */
+  align-items: flex-start; /* จัดเนื้อหาให้อยู่ด้านบน */
   min-height: 100vh;
+  min-width: 320px;
+  box-sizing: border-box;
 }
+
+/* Wrapper Container for Content */
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin-top: 20px; /* เว้นระยะห่างจากขอบด้านบน */
+  box-sizing: border-box;
+  text-align: center;
+}
+
 
 /* Typography */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5rem;
+  line-height: 1.2;
   color: #333;
 }
 
 p {
-  font-size: 18px;
-  margin: 5px 0;
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #555;
 }
 
 /* Anchor Links */
@@ -57,7 +69,7 @@ a:hover {
 /* Buttons */
 button {
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
   color: white;
@@ -84,7 +96,9 @@ input {
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 200px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
 }
 
 /* Ant Design Specific Styling */
@@ -110,7 +124,73 @@ input {
   overflow: hidden;
 }
 
-/* Media Query for Light Mode */
+/* Responsive Layout Adjustments */
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.9rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  .wrapper {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.5em 0.8em;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .wrapper {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Light Mode */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -122,6 +202,6 @@ input {
   }
 
   button {
-    background-color: #f9f9f9;
+    background-color: #007bff;
   }
 }

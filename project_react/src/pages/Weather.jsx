@@ -77,15 +77,6 @@ const Weather = () => {
     <div style={{ fontFamily: 'Prompt', textAlign: 'center', padding: '20px' }}>
       <Title level={2}>Weather by Location</Title>
 
-      {/* ปุ่มย้อนกลับ */}
-      <Button
-        type="primary"
-        onClick={() => navigate('/')}
-        style={{ marginBottom: '20px' }}
-      >
-        Back to Home
-      </Button>
-
       {/* Dropdown เลือกทวีป */}
       <div style={{ marginBottom: '20px' }}>
         <Select
@@ -165,6 +156,16 @@ const Weather = () => {
           <p>Description: {weather.description}</p>
         </Card>
       ) : null}
+
+      {/* ปุ่มย้อนกลับ */}
+      <Button
+        type="primary"
+        onClick={() => navigate('/')}
+        style={{ marginTop: '20px' }}
+      >
+        Back to Home
+      </Button>
+
     </div>
   );
 };
